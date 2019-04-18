@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+app.use(express.static(__dirname + '/public')); //Dizendo aonde estao as pastas css, img e js
+
 const uri = "mongodb://localhost:27017/projetoHaken";
 
 mongoose.connect(uri, { useNewUrlParser: true });
@@ -22,7 +24,3 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
     res.render('index.ejs');
 });
-
-app.post('/show', (req, res) => {
-
-})
