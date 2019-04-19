@@ -30,16 +30,23 @@ button {
   font-size: 16px;
 }
 
+
 #banner{
   background-image: url("/public/images/front.jpg");
   background-color: #cccccc;
-  height: auto;
   text-align: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
+#avatar {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    background-image: url("/public/images/front1.jpg");
+    background-size: cover;
+}
 
 #content {
   background: #e7eef5;
