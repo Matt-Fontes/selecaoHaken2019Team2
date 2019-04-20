@@ -1,19 +1,10 @@
-h1 {
+body{
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
   font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  color: black;
-}
-
-h2 {
-  font-family: 'Montserrat', sans-serif;
-  color: black;
-  text-align: center;
-}
-
-p {
-  font-family: 'Montserrat', sans-serif;
-  color: black;
-  text-align: center;
+  overflow-x: hidden;
 }
 
 button {
@@ -25,45 +16,74 @@ button {
   display: inline-block;
   color: white;
   background-color: #17d378;
-  border-radius: 22px;
+  border-radius: 18px;
   padding: 15px 28px;
   font-size: 16px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btnBanner{
+  margin-top: 80px;
 }
 
 
-#banner{
-  background-image: url("/public/images/front.jpg");
-  background-color: #cccccc;
+.banner{
+  background-image: url("../images/front.jpg");
+  background-color: #fff;
   text-align: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.bannerContent{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.headerTitle{
+  font-weight: bold;
+  font-size: 90px;
+  color: #fff;
+  display: block;
+  margin-top: 80px;
+}
+
+.section1Title{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  background: #fff;
+  padding-top: 75px;
 }
 
 #avatar {
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    background-image: url("/public/images/front1.jpg");
-    background-size: cover;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  background-image: url("../images/front1.jpg");
+  background-size: cover;
 }
 
 #content {
-  background: #e7eef5;
+  background: #fff;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: flex-start;
+  padding-top: 75px;
+  padding-bottom: 150px;
 }
 
-#content h2 {
-  color: white;
-}
-
-#content p {
-  color: white;
-}
 #content a {
   color: white;
   font-size: 70px;
@@ -71,10 +91,39 @@ button {
 }
 
 .item {
-  width: 100px;
+  width: 300px;
   color: white;
   -webkit-box-shadow: 0px 2px 8px -1px rgba(0,0,0,0,0.24);
   margin: 5px;
+  height: 200px;
+  background: #17d378;
+  border-radius: 30px;
+}
+
+.iconItem{
+  filter: invert(1);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  width: auto;
+  height: 35%;
+}
+
+.tituloItem{
+  color: white;
+  font-size: 25px;
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.descItem {
+  width: 100%;
+  display: block;
+  text-align: center;
 }
 
 .botao {
