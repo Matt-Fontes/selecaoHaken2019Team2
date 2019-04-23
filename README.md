@@ -29,6 +29,7 @@ npm install node-modules
 
 npm install package.json
 
+npm install express-fileupload
 
 
 npm install
