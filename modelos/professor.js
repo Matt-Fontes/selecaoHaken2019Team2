@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
-var tema = new mongoose.Schema({   
+var professor = new mongoose.Schema({
   nome: {type: String,  trim: true},
-  senha: {type:},
+  senha: {type: String, trim: true}
 });
 
 module.exports = mongoose.model('professor', professor);

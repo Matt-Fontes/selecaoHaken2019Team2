@@ -2,9 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>landing page</title>
+    <title>Landing Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" type="image/ico" href="images/icon.png" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
   </head>
@@ -17,6 +18,65 @@
 					scrollTop: position
 				}, 1500);
       });
+
+      var i2a = 0;
+
+
+      $(".item2").click(function(){
+        if(i2a == 0)
+        {
+          i2a = 1;
+          $(".iconItem2").css("display", "none");
+          $(".tituloItem2").css("display", "none");
+          $(".descItem2").css("display", "none");
+          $(".item2").css("pointer-events", "none");
+
+          $(".item2").animate({
+  					height: "350px",
+            backgroundColor: "#fff"
+  				}, 500);
+          setTimeout( function()
+          {
+            $(".modalForm").css("display", "block");
+            $(".item2").css("background", "#fff");
+            $(".item2").css("border-radius", "10px");
+            $(".item2").css("border-bottom", "solid #aaa");
+            $(".item2").css("border-right", "solid #aaa");
+            $(".modalClose").css("pointer-events", "all");
+            $(".modalInput").css("pointer-events", "all");
+          }, 500);
+        }
+      });
+
+      $(".modalClose").click(function(){
+        $(".modalForm").css("display", "none");
+        $(".iconItem2").css("display", "block");
+        $(".tituloItem2").css("display", "block");
+        $(".descItem2").css("display", "block");
+
+        $(".item2").animate({
+          height: "250px",
+          backgroundColor: "#17d378"
+        }, 500);
+
+        setTimeout(function (){
+          $(".item2").css("border-radius", "");
+          $(".item2").css("border-bottom", "");
+          $(".item2").css("border-right", "");
+        }, 500);
+        setTimeout(function(){
+          $(".item2").css("pointer-events", "all");
+          i2a = 0;
+        }, 500);
+      });
+
+      $(".modalInput").click(function(){
+        alert("Abrir Modal");
+
+      });
+
+
+
     });
   </script>
   <body>
@@ -28,51 +88,59 @@
         <img src="images/slider2.jpg"/>
         <img src="images/slider3.jpg"/>
         <img src="images/slider4.jpg"/>
-        <img src="images/slider5.jpg"/>
+        <img src="images/slider5.jpg"/ />
       </figure>
     </div>
     <div class="bannerContent">
-    <spam class="headerTitle" >REDAPRO</spam>
+    <span class="headerTitle" >REDAPRO</span>
     <button class="btnBanner" type="button" name="saibamais">saiba mais</button>
   </div>
 </div>
 
-    <spam class="section1Title">NOSSOS SERVIÇOS</spam>
+    <span class="section1Title">NOSSOS SERVIÇOS</span>
 
     <div id="content">
-      <div class="item" onclick="window.location='/redacoes';">
-        <img class="iconItem" src="images/redacao.png" width="100" />
-        <spam class="tituloItem">Redações</spam>
-        <spam class="descItem">Escreva a redação com os<br>temas propostos</spam>
+      <div class="item item1" onclick="window.location='/redacoes';">
+        <img class="iconItem iconItem1" src="images/redacao.png" width="100" />
+        <span class="tituloItem tituloItem1">Redações</span>
+        <span class="descItem descItem1">Escreva a redação com os<br>temas propostos</span>
       </div>
 
-      <div class="item" onclick="window.location='/envio';">
-        <img class="iconItem" src="images/envio.png" width="100" />
-        <spam class="tituloItem">Envio</spam>
-        <spam class="descItem">Envie sua redação para<br>ser corrigida pelo professor</spam>
+      <div class="item item2"> <!-- onclick="window.location='/envio';"> -->
+
+        <form class="modalForm">
+          <input class="modalInput">
+          <span class="modalspan">Clique para adicionar e enviar o arquivo</span>
+          <span class="modalClose">x</span>
+          <img class="modalImg" src="images/arquivo.png">
+        </form>
+
+        <img class="iconItem iconItem2" src="images/envio.png" width="100" />
+        <span class="tituloItem tituloItem2">Envio</span>
+        <span class="descItem descItem2">Envie sua redação para<br>ser corrigida pelo professor</span>
       </div>
 
       <div class="item" onclick="window.location='/loginProfessor';">
         <img class="iconItem" src="images/analise.png" width="100"  />
-        <spam class="tituloItem">Análise</spam>
-        <spam class="descItem">Sua redação será analisada,<br>corrigida e revisada<br>pelo professor</spam>
+        <span class="tituloItem">Análise</span>
+        <span class="descItem">Sua redação será analisada,<br>corrigida e revisada<br>pelo professor</span>
       </div>
     </div>
 
     <div class="content2">
-      <spam class="titleSec2">QUEM<br>SOU!</spam>
+      <span class="titleSec2">QUEM<br>SOU!</span>
       <div id="avatar"></div>
-      <spam class="sec2Desc">Sou um professor buscando<br>melhorar o desempenho dos<br>alunos nas redações para o<br>enem para alcançar as notas<br>desejadas</spam>
+      <span class="sec2Desc">Sou um professor buscando<br>melhorar o desempenho dos<br>alunos nas redações para o<br>enem para alcançar as notas<br>desejadas</span>
     </div>
 
 
     <div class="content3">
-      <spam class="sec3Msg">ENVIE UMA MENSAGEM<br>PARA O PROFESSOR</spam>
+      <span class="sec3Msg">ENVIE UMA MENSAGEM<br>PARA O PROFESSOR</span>
       <button class="btnSec3" type="button" name="contato">contato</button>
     </div>
 
     <footer>
-        <spam class="txtFoot">Haken 2019 Team2 Project</spam>
+        <span class="txtFoot">Haken 2019 Team2 Project</span>
     </footer>
   </body>
 </html>

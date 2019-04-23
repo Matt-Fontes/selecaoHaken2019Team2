@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Professor</title>
+    <link rel="stylesheet" type="text/css" href="css/styleProf.css">
+    <link rel="icon" type="image/ico" href="images/icon.png" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+      $(document).ready(function() {
+
+        setTimeout( function()
+        {
+          $(".txtNome").val("");
+          $(".txtSenha").val("");
+        }, 500);
+
+        $("*").click(function(){    //Aqui o * se aplica a tudo, entao quando clicar em qualquer coisa, ele executara a função
+          if($(this).attr("class") != "txtNome"){   //Aqui perguntei se a classe do q estou clicando é diferente do txtNome q é a classe do input onde escreve o nome
+            if($(".txtNome").val().trim().length > 0){    //Aqui pergunto se o que estiver escrito é nulo
+              $(".overlayN").css("transform", "scale(0.77) translateY(-28px) translateX(-10px)");   //Mudo o css para o texto escrito "Nome" se mover e diminuir
+            }
+            else {
+              $(".overlayN").css("transform", "");    //Mudo o css de volta para o padrão
+            }
+          }
+
+          // A parte de baixo funciona igual, unica diferença é q é focada na caixa da senha
+          if($(this).attr("class") != "txtSenha"){
+            if($(".txtSenha").val().trim().length > 0){
+              $(".overlayS").css("transform", "scale(0.77) translateY(-28px) translateX(-10px)");
+            }
+            else {
+              $(".overlayS").css("transform", "");
+            }
+          }
+        });
+
+        //Em baixo a mesma coisa, porém ao invés de ver quando o usuário clica, ele vê quando o usuário aperta uma tecla
+        $("*").keydown(function(){
+          if($(this).attr("class") != "txtNome"){
+            if($(".txtNome").val().trim().length > 0){
+              $(".overlayN").css("transform", "scale(0.77) translateY(-28px) translateX(-10px)");
+            }
+            else {
+              $(".overlayN").css("transform", "");
+            }
+          }
+
+          if($(this).attr("class") != "txtSenha"){
+            if($(".txtSenha").val().trim().length > 0){
+              $(".overlayS").css("transform", "scale(0.77) translateY(-28px) translateX(-10px)");
+            }
+            else {
+              $(".overlayS").css("transform", "");
+            }
+          }
+        });
+
+
+
+
+
+        $(".btnEnviar").click(function(){
+          var uname  = $(".txtNome").val().trim();
+          var upass = $(".txtSenha").val().trim();
+          var loginData ={'name': uname,'pass':upass};
+          $.ajax({
+            type : 'POST',
+            url : '/login',
+            data : loginData,
+            success: function(data){
+              if(data == 'success')
+              {
+                window.location.href = "/";
+              } else {
+                $(".txtError").css("visibility", "visible");
+                $(".txtNome").css("border-color", "#da0000");
+                $(".txtSenha").css("border-color", "#da0000");
+                $(".txtOverlay").css("color", "#da0000");
+              }
+            }
+          });
+        });
+
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Assim q faz cometário em HTML -->
+    <div class="containBack">
+      <img src="images/background.jpg" />
+    </div>
+    <div class="container">
+      <div class="leftSide">
+        <img src="images/profileIcon.png" class="perfil">
+        <div class="welcomeMsg">Bem-vindo(a) Professor(a)</div>
+      </div>
+      <div class="rightSide">
+        <span class="title">Login</span>
+        <div> <!-- Assim q manda a informação para o back-end, um form com uma action e um método -->
+          <input type="text" name="nome" class="txtNome"> <!-- As classes são "Nomes" utilizados para identificar um elemento, para assim poder dar estilo e usar javascript -->
+          <div class="txtOverlay overlayN">Nome</div>    <!-- Esse é o Escrito q aparece em cima da caixa antes de ela ser clicada -->
+          <input type="password" name="senha" class="txtSenha">
+          <div class="txtOverlay overlayS">Senha</div>    <!-- Esse é o Escrito q aparece em cima da caixa antes de ela ser clicada -->
+          <input type="submit" class="btnEnviar" value="Entrar"> <!-- Botão para enviar com o tipo: submit, para o form entender q as informações devem ser enviadas -->
+        </div>
+        <spam class="txtError">Login ou Senha invalido</spam>
+      </div>
+    </div>
+  </body>
+</html>
