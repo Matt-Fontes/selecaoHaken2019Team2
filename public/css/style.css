@@ -194,6 +194,8 @@ button {
   font-size: 100px;
   text-align: center;
   align-self: center;
+  /* font-weight: bold; */
+  /*font-family: 'Montserrat', - sans-serif;*/
 }
 
 #avatar {
