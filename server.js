@@ -39,6 +39,9 @@ app.get('/loginProfessor', (req, res) => {
     res.render('loginProfessor.ejs');
 });
 
+app.get('/pageProfessorLinkComplicadoProAlunoNaoSaber', (req, res) => {
+    res.render('pageProfessor.ejs');
+});
 
 
 const professor = require('./rotas/api');

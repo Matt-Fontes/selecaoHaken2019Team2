@@ -19,6 +19,14 @@
 				}, 1500);
       });
 
+      $(".btnSec3").click(function(){
+        var position = $("#content").offset().top - 200;
+        console.log(position);
+        $('html, body').animate({
+					scrollTop: position
+				}, 1500);
+      });
+
       var i2a = 0;
 
 
@@ -135,8 +143,8 @@
 
 
     <div class="content3">
-      <span class="sec3Msg">ENVIE UMA MENSAGEM<br>PARA O PROFESSOR</span>
-      <button class="btnSec3" type="button" name="contato">contato</button>
+      <span class="sec3Msg">ENVIE SUA REDAÇÃO AGORA<br>PARA O PROFESSOR</span>
+      <button class="btnSec3" type="button" name="contato">Voltar Para Cima</button>
     </div>
 
     <footer>
