@@ -78,6 +78,9 @@ app.post('/fileUpload',function(req,res){
         res.send("Error Occured!")
       }
       else {
+        file.today = new Date();
+        file.aluno = req.body.aluno;
+        req.body = file;
         console.log("File Uploaded",name);
         res.send('Done! Uploading files')
       }

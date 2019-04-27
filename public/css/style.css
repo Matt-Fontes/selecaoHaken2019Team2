@@ -149,6 +149,26 @@ button {
   transform: scale(0.9);
 }
 
+
+.item2Over {
+  position: fixed;
+  visibility: hidden;
+  z-index: 5;
+  opacity: 0;
+}
+
+.modalBack {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  background: #000;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
 .iconItem{
   filter: invert(1);
   display: block;

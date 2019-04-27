@@ -29,6 +29,99 @@
 
       var i2a = 0;
 
+      var offset = $(".item2").offset();
+      $(".item2Over").css("top", offset.top - 5 - $(window).scrollTop());
+      $(".item2Over").css("left", offset.left - 5);
+
+      window.onscroll = function(e) {
+        if(i2a == 0){
+          $(".item2Over").css("top", offset.top - 5 - $(window).scrollTop());
+          $(".item2Over").css("left", offset.left - 5);
+        }
+      }
+
+
+      $(window).resize(function(){
+        console.log($(window).height());
+        if(i2a == 0){
+          var offset = $(".item2").offset();
+          $(".item2Over").css("top", offset.top - 5 - $(window).scrollTop());
+          $(".item2Over").css("left", offset.left - 5);
+        }
+      });
+
+
+
+      $(".item2").click(function(){
+        i2a = 1;
+        $(".item2Over").css("visibility", "visible");
+        $(".item2Over").animate({
+          opacity: "1.0"
+        }, 200);
+
+        $(this).animate({
+          opacity: "0"
+        }, 500);
+
+        $(".modalBack").css("visibility", "visible");
+
+        var lefty = $(window).width() / 2 - 250;
+        var heighty = $(window).height() / 2 - 350;
+        setTimeout(function(){
+          $(".item2Over").animate({
+            width: "500px",
+            height: "700px",
+            left: lefty,
+            top: heighty,
+            backgroundColor: "#fff"
+          }, 500);
+
+          $(".modalBack").animate({
+            opacity: "0.5"
+          }, 500);
+        }, 200);
+
+      });
+
+
+
+      $(".modalBack").click(function(){
+        i2a = 0;
+
+        setTimeout(function(){
+          $(".item2").css("opacity", "1");
+          $(".modalBack").css("visibility", "hidden");
+        }, 700);
+
+
+
+        var heighty = $(".item2").offset().top - 5 - $(window).scrollTop();
+        var lefty = $(".item2").offset().left - 5;
+
+        setTimeout(function(){
+          $(".item2Over").animate({
+            width: "400",
+            height: "250px",
+            left: lefty,
+            top: heighty,
+            backgroundColor: "#17d378"
+          }, 500);
+
+          $(".modalBack").animate({
+            opacity: "0"
+          }, 500);
+        }, 200);
+
+        setTimeout(function(){
+          $(".item2Over").css("visibility", "hidden");
+        }, 700)
+      });
+
+
+
+      /*
+      var i2a = 0;
+
 
       $(".item2").click(function(){
         if(i2a == 0)
@@ -40,9 +133,9 @@
           $(".item2").css("pointer-events", "none");
 
           $(".item2").animate({
-  					height: "350px",
+            height: "350px",
             backgroundColor: "#fff"
-  				}, 500);
+          }, 500);
           setTimeout( function()
           {
             $(".modalForm").css("display", "block");
@@ -81,7 +174,7 @@
       $(".modalInput").click(function(){
         alert("Abrir Modal");
 
-      });
+      });*/
 
 
 
@@ -113,6 +206,9 @@
         <span class="tituloItem tituloItem1">Redações</span>
         <span class="descItem descItem1">Escreva a redação com os<br>temas propostos</span>
       </div>
+
+      <div class="modalBack"></div>
+      <div class="item item2Over"></div>
 
       <div class="item item2"> <!-- onclick="window.location='/envio';"> -->
 
