@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>Landing Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/materialio.css">
-  <link rel="stylesheet" type="text/css" href="css/material.css">
+  <link rel="stylesheet" type="text/css" href="css/blogmaterialio.css">
+  <link rel="stylesheet" type="text/css" href="css/blog.css">
   <link rel="stylesheet" type="text/css" href="css/stylePage.css">
   <link rel="icon" type="image/ico" href="images/icon.png" />
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
@@ -14,7 +14,6 @@
   <script type="text/javascript" src="js/jquery1.js"></script>
   <script type="text/javascript" src="js/jquery2.js"></script>
   <script type="text/javascript" src="js/jquery3.js"></script>
-
 </head>
 
 <body>
@@ -42,10 +41,7 @@
               <tr>
                   <th>Titulo</th>
                   <th>Tema</th>
-                  <th>Aluno</th>
-                  <th>Email</th>
-                  <th>Data</th>
-                  <th>Arquivo</th>
+                  <th>Score</th>
               </tr>
           </thead>
           <tbody>
@@ -53,7 +49,7 @@
               <tr class="line">
                   <td><%= item.titulo %></td>
                   <td><%= item.tema %></td>
-                  <td><%= item.aluno %></td>
+                  <td><%= item.score %></td>
                   <td><%= item.email %></td>
                   <td><%= item.hoje %></td>
                   <td class="url"><%= item.name %></td>
@@ -65,10 +61,7 @@
               <tr>
                 <th>Titulo</th>
                 <th>Tema</th>
-                <th>Aluno</th>
-                <th>Email</th>
-                <th>Data</th>
-                <th>Arquivo</th>
+                <th>Score</th>
               </tr>
           </tfoot>
       </table>
