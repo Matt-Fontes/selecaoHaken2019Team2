@@ -356,8 +356,8 @@ button {
 
 #avatar {
   border-radius: 50%;
-  width: 700px;
-  height: 700px;
+  width: 650px;
+  height: 650px;
   background-image: url("../images/front1.jpg");
   background-size: cover;
   grid-column: 2;
