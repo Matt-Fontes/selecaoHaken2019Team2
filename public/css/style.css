@@ -379,9 +379,20 @@ button {
     border: solid 1px;
     padding: 5px;
     border-radius: 5px;
-    width: 12px;
+    width: 13.2px;
     text-align: center;
     background-color: #3b5998;
+    color: #fff;
+}
+
+.fab.fa-instagram {
+    border: solid 1px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 13.2px;
+    text-align: center;
+    background: linear-gradient(#3d00e3, #bc0077, #eaf817);
+    color: #fff;
 }
 
 .content3{

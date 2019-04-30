@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/redacoes', (req, res) => {
-    res.render('redacoes.ejs');
+    res.render('pageBlog.ejs');
 });
 
 app.get('/envio', (req, res) => {
