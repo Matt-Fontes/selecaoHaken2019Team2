@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Landing Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" type="image/ico" href="images/icon.png" />
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -185,6 +186,7 @@
   <body>
 
     		<script>
+        /*
     			var modal = document.getElementById('modal')
     			var btn = document.getElementById("btnAbrir")
     			var span = document.getElementsByClassName("close")[0]
@@ -201,7 +203,7 @@
     				if (event.target == modal) {
     					modal.style.display = "none";
     				}
-    			}
+    			}*/
     		</script>
 
 
@@ -232,14 +234,12 @@
 
       <div class="modalBack"></div>
       <div class="item item2Over">
-        <button id="btnAbrir">Abrir Modal</button>
 
-        <div id="modal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <form>
+
+
+            <form class="formModal" method="post" action="/fileUpload" enctype="multipart/form-data">
               Nome:<br>
-              <input type="text" name="nome"><br>
+              <input type="text" name="aluno"><br>
 
               E-Mail:<br>
               <input type="mail" name="email"><br>
@@ -256,8 +256,7 @@
               <input type="submit" value="Submit">
             </form>
 
-          </div>
-        </div>
+
       </div>
 
       <div class="item item2"> <!-- onclick="window.location='/envio';"> -->
@@ -287,6 +286,10 @@
       <span class="sec2Desc">Sou um professor buscando<br>melhorar o desempenho dos<br>alunos nas redações para o<br>enem para alcançar as notas<br>desejadas</span>
     </div>
 
+<div class="socials">
+  <i class="fab fa-instagram" href="#"></i>
+  <i class="fab fa-facebook-f" href="#"></i>
+</div>
 
     <div class="content3">
       <span class="sec3Msg">ENVIE SUA REDAÇÃO AGORA<br>PARA O PROFESSOR</span>
