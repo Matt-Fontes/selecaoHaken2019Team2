@@ -180,7 +180,30 @@
 
     });
   </script>
+
+
   <body>
+
+    		<script>
+    			var modal = document.getElementById('modal')
+    			var btn = document.getElementById("btnAbrir")
+    			var span = document.getElementsByClassName("close")[0]
+
+    			btn.onclick = function() {
+    				modal.style.display = "block";
+    			}
+
+    			span.onclick = function() {
+    				modal.style.display = "none";
+    			}
+
+    			window.onclick = function(event) {
+    				if (event.target == modal) {
+    					modal.style.display = "none";
+    				}
+    			}
+    		</script>
+
 
   <div class="banner">
     <div class="slider">
@@ -208,7 +231,34 @@
       </div>
 
       <div class="modalBack"></div>
-      <div class="item item2Over"></div>
+      <div class="item item2Over">
+        <button id="btnAbrir">Abrir Modal</button>
+
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+              Nome:<br>
+              <input type="text" name="nome"><br>
+
+              E-Mail:<br>
+              <input type="mail" name="email"><br>
+
+              Titulo da Redação:<br>
+              <input type="text" name="titulo"><br>
+
+              Tema da Redação:<br>
+              <input type="text" name="tema"><br>
+
+              Arquivo:<br>
+              <input type="file" name="arquivo"><br><br>
+
+              <input type="submit" value="Submit">
+            </form>
+
+          </div>
+        </div>
+      </div>
 
       <div class="item item2"> <!-- onclick="window.location='/envio';"> -->
 
