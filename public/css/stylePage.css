@@ -2,9 +2,20 @@ body {
   background-color:#ffffff;
   color: black;
   border:none;
-  padding:2%;
-
+  padding:auto;
 }
+
+.mdl-button--raised{
+  background: #17d378 !important;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.odd:hover, .even:hover{
+  cursor: pointer;
+}
+
+
  /*
 select.tema {
   width: 200px;

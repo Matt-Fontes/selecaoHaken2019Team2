@@ -38,10 +38,10 @@ app.get('/envio', (req, res) => {
 app.get('/loginProfessor', (req, res) => {
     res.render('loginProfessor.ejs');
 });
-
+/*
 app.get('/pageProfessorLinkComplicadoProAlunoNaoSaber', (req, res) => {
     res.render('pageProfessor.ejs');
-});
+});*/
 
 
 const professor = require('./rotas/api');
@@ -59,11 +59,14 @@ app.post('/login', function(req, res, next){
       res.send('fail');
       console.log("Login Failed")
     }
-  })
+  });
+});
 
 
 
 app.use(upload());
+
+const Redacao = require('./modelos/redacao.js');
 
 app.post('/fileUpload',function(req,res){
   console.log(req.files);
@@ -83,6 +86,8 @@ app.post('/fileUpload',function(req,res){
         req.body = file;
         console.log("File Uploaded",name);
         res.send('Done! Uploading files')
+
+        Redacao.create(req.body);
       }
     });
   }
@@ -92,21 +97,20 @@ app.post('/fileUpload',function(req,res){
   };
 })
 
+app.get('/pageProfessorLinkComplicadoProAlunoNaoSaber', (req, res) => {
+  Redacao.find()
+  .then(redacaos => {
+    res.render('./pageProfessor', { usuarios: redacaos });
+  })
+  .catch(err => {
+    res.json({
+      confirmation: 'fail',
+      message: err.message
+    })
+  })
+});
 
-  /*
-  MongoClient.connect(uri, function(err, db) {
-   db.collection('professors').findOne({ name: req.body.name}, function(err, user) {
-     if(user ===null){
-       console.log("k");
-       //res.end("Login invalido");
-     }else if (user.name === req.body.name && user.pass === req.body.pass){
-       console.log("wel;l");
-       res.render('index.ejs');
-       //res.render('completeprofile',{profileData:user);
-     } else {
-       console.log("Credentials wrong");
-       //res.end("Login invalid");
-     }
-   });
- });*/
+app.get('/downloadFile', function(req, res){
+  var file = __dirname + '/temp/' + req.query.url;
+  res.download(file);
 });
