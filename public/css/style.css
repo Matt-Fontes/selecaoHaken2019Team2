@@ -375,6 +375,15 @@ button {
   justify-self: center;
 }
 
+.fab.fa-facebook-f {
+    border: solid 1px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 12px;
+    text-align: center;
+    background-color: #3b5998;
+}
+
 .content3{
   background-image: url("../images/write.jpg");
   background-color: #fff;
