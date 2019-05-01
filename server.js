@@ -81,8 +81,17 @@ app.post('/fileUpload',function(req,res){
         res.send("Error Occured!")
       }
       else {
-        file.today = new Date();
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = dd + '/' + mm + '/' + yyyy;
+        file.hoje = today;
         file.aluno = req.body.aluno;
+        file.tema = req.body.tema;
+        file.titulo = req.body.titulo;
+        file.email = req.body.email;
+
         req.body = file;
         console.log("File Uploaded",name);
         res.send('Done! Uploading files')

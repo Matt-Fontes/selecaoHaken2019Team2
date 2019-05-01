@@ -7,6 +7,10 @@ body{
   overflow-x: hidden;
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+
 .slider {
   overflow: hidden;
   position: absolute;
@@ -196,7 +200,202 @@ button {
   visibility: hidden;
   z-index: 5;
   opacity: 0;
+  padding: 20px;
+  width: 360px;
+  height: 210px;
+  overflow-y: scroll;
 }
+
+.item2Over:hover{
+  cursor:default;
+}
+
+.item2Over:active{
+  transform: scale(1);
+}
+
+.formInput {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0px;
+  font-size: 16px;
+  width: 80%;
+  height: 40px;
+  border-radius: 7px;
+  border-style: solid;
+  border-color: #ccc;
+  border-width: 1.1px;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: transform ease-in 0.2s;
+  margin-top: 20px;
+  opacity: 1;
+}
+
+.formSpan {
+  position: relative;
+  top: -32px;
+  left: 10%;
+  font-family: sans-serif;
+  color: #777;
+  display: block;
+  background: #fff;
+  text-align: left;
+  font-size: 17px;
+  transition: transform ease-in 0.2s;
+  pointer-events: none;
+  z-index: 1;
+  width: max-content;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.txtNome:focus ~ .overNome{
+  transform: scale(0.77) translateY(-28px) translateX(-10px);
+  color: #06c271;
+}
+
+.txtNome:focus{
+  border-color: #06c271;
+  border-width: 2px;
+}
+
+.txtEmail:focus ~ .overEmail{
+  transform: scale(0.77) translateY(-28px) translateX(-10px);
+  color: #06c271;
+}
+
+.txtEmail:focus{
+  border-color: #06c271;
+  border-width: 2px;
+}
+
+.txtTema:focus ~ .overTema{
+  transform: scale(0.77) translateY(-28px) translateX(-25px);
+  color: #06c271;
+}
+
+.txtTema:focus{
+  border-color: #06c271;
+  border-width: 2px;
+}
+
+.txtTitulo:focus ~ .overTitulo{
+  transform: scale(0.77) translateY(-28px) translateX(-25px);
+  color: #06c271;
+}
+
+.txtTitulo:focus{
+  border-color: #06c271;
+  border-width: 2px;
+}
+
+.formArquivo{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+}
+
+.arquivoInput{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 60%;
+  height: 160px;
+  outline: none;
+  opacity: 0;
+  top: -140px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
+
+
+.formzin {
+  transition: all .2s ease;
+  opacity: 0;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+
+}
+
+.overInput{
+  width: 60%;
+  height: 160px;
+  text-align: center;
+  line-height: 170px;
+  color: #000;
+  font-family: Arial;
+  display: block;
+  position: relative;
+  top: 20px;
+  border: dotted #17d378;
+  border-radius: 20px;
+  pointer-events: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formBtn{
+  margin: 0;
+  color: #fff;
+  background: #17d378;
+  border: none;
+  height: 35px;
+  margin-top: -20px;
+  margin-left: -4px;
+  border-radius: 15px;
+  transition: all .2s ease;
+  outline: none;
+  position: relative;
+  top: -200px;
+  text-align: center;
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 0.3;
+}
+form button:hover{
+  background: #06c267;
+	color: #000;
+}
+form button:active{
+  transform: scale(0.9);
+}
+
+form img {
+  position: relative;
+  display: block;
+  top: -270px;
+  width: 20%;
+  filter: contrast(1000%) invert(100%) sepia(50%) saturate(1000%) hue-rotate(90deg) brightness(100%);
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: none;
+}
+
+.arquivoMsg {
+  position: relative;
+  display: block;
+  top: 0px;
+  color: #777;
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+  letter-spacing: 0.1px;
+}
+
+
 
 .modalBack {
   position: fixed;
