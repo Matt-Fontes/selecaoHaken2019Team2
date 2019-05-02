@@ -292,6 +292,11 @@ button {
   border-width: 2px;
 }
 
+.txtTema{
+  width: calc(80% + 45px);
+  height: 47px;
+}
+
 .formArquivo{
   position: absolute;
   margin: 0;

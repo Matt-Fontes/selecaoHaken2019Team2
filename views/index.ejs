@@ -67,7 +67,7 @@
         $(".txtNome").val("");
         $(".txtEmail").val("");
         $(".txtTitulo").val("");
-        $(".txtTema").val("");
+        $(".txtTema").children("option:selected").val("");
 
         $(".modalBack").css("visibility", "visible");
 
@@ -175,7 +175,7 @@
         }
 
         if($(this).attr("class") != "txtTema"){
-          if($(".txtTema").val().trim().length > 0){
+          if($(".txtTema").children("option:selected").val().trim().length > 0){
             $(".overTema").css("transform", "scale(0.77) translateY(-28px) translateX(-25px)");
           }
           else {
@@ -228,7 +228,7 @@
         }
 
         if($(this).attr("class") != "txtTema"){
-          if($(".txtTema").val().trim().length > 0){
+          if($(".txtTema").children("option:selected").val().trim().length > 0){
             $(".overTema").css("transform", "scale(0.77) translateY(-28px) translateX(-25px)");
           }
           else {
@@ -307,12 +307,27 @@
           <input class="formInput txtTitulo" type="text" name="titulo">
           <div class="formSpan overTitulo">Titulo da Redação</div>
 
-          <input class="formInput txtTema" type="text" name="tema">
+          <select class="formInput txtTema" name="tema">
+            <option value="main"></option>
+            <% temas.forEach((item) => { %>
+                    <% var dia = item.hoje; %>
+                    <% dia = dia.slice(0,2); %>
+                    <% var mes = item.hoje; %>
+                    <% mes = mes.slice(3,5); %>
+                    <% var ano = item.hoje; %>
+                    <% ano = ano.slice(6,10); %>
+                    <% var today = new Date(); %>
+                    <% var dd = String(today.getDate()).padStart(2, '0'); %>
+                    <% var mm = String(today.getMonth() + 1).padStart(2, '0'); %>
+                    <% var yyyy = today.getFullYear(); %>
+                    <% if(dia >= dd && mes >= mm && ano >= yyyy){ %>
+            <option><%= item.nome; %></option>
+                    <% } %>
+            <% }) %>
+          </select>
           <div class="formSpan overTema">Tema da Redação</div>
           <span class="arquivoMsg">Arraste o Arquivo Ou Clique Abaixo</span>
-          <div class="overInput">
-
-          </div>
+          <div class="overInput"></div>
           <input class="arquivoInput" type="file" name="upfile" value="">
           <img src="images/arquivo.png">
           <button class="formBtn" type="submit">Enviar</button>

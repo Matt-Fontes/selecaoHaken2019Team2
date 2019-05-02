@@ -15,35 +15,267 @@ body {
   cursor: pointer;
 }
 
-
- /*
-select.tema {
-  width: 200px;
-  height: 35px;
-}
-select.status {
-  width: 200px;
-  height: 35px;
-}
-
-select {
-  background: #f5f5f5;
-  border: 0;
+.top {
+  position: absolute;
+  display: flex;
+  width: 170px;
+  background: linear-gradient(to right, #17d378 50%, #eee 50%);
+  border-radius: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10px;
+  height: 35px
 }
 
-#calendario {
+.left {
+  padding: 5px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 5px 0px 4px #ccc;
+  width: 50%;
+  text-align: center;
+  align-self: center;
+}
+
+.left:hover{
+  cursor: pointer;
+}
+
+.right {
+  padding: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+  align-self: center;
+}
+
+.right:hover{
+  cursor: pointer;
+}
+
+.sec2{
+  display: flex;
+  display: none;
+}
+
+.addTema {
+  width: max-content;
+  height: max-content;
+  margin-left: 15px;
+  flex-direction: column;
+  display: flex;
+}
+
+.txtAdd {
+  font-size: 20px;
+  color: #17d378;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.formTema{
+  position: relative;
+}
+
+.txtOverlay{
+  font-size: 12px;
+  color: rgba(0,0,0,.54);
+  font-weight: bold;
+}
+
+.txtInput{
+  border: solid 1px #bbb;
+  height: 20px;
   width: 200px;
+}
+
+.txtData{
+  width: 100%;
+}
+
+.formBtn {
+  width: 100%;
+  position: relative;
+  height: 25px;
+  top: 20px;
+  background: #17d378;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.delTema {
+  width: max-content;
+  height: max-content;
+  margin-left: 15px;
+  flex-direction: column;
+  margin-left: 30px;
+  display: flex;
+}
+
+.txtDel {
+  font-size: 20px;
+  color: #f33;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form2Tema{
+  display: flex;
+  flex-direction: column;
+}
+
+.form2Btn {
+  width: 100%;
+  position: relative;
+  height: 25px;
+  top: 20px;
+  background: #f33;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.form3Tema{
+  display: flex;
+  flex-direction: column;
+}
+
+.txtUpt{
+  font-size: 20px;
+  color: #33f;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.uptTema {
+  width: max-content;
+  height: max-content;
+  margin-left: 15px;
+  flex-direction: column;
+  margin-left: 30px;
+  display: flex;
+}
+
+.form3Btn {
+  width: 100%;
+  position: relative;
+  height: 25px;
+  top: 20px;
+  background: #33f;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.modalBack {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+  display: none;
+}
+
+.uploadModal {
+  width: 400px;
+  height: 400px;
+  background: #fff;
+  border-radius: 30px;
+  display: block;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 2;
+}
+
+.modalTitulo {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  text-align: center;
+  height: 60px;
+}
+
+.modalBtnDel {
+  position: relative;
+  display: block;
+  border: none;
+  border-radius: 10px;
+  background: #f33;
+  color: #fff;
+  font-weight: bold;
+  width: 75%;
   height: 30px;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
-.ui-datepicker-trigger {
-    width: 30px;
-    position: relative;
-    top: 8px;
-    margin-left: 2px;
+.arquivoMsg {
+  display: block;
+  position: relative;
+  text-align: center;
 }
 
-.ui-datepicker-trigger:hover{
-  cursor:pointer;
+.overInput {
+  width: 65%;
+  height: 150px;
+  border: dotted #17d378 4px;
+  border-radius: 20px;
+  margin: auto;
+  pointer-events: none;
+  margin-top: 10px;
 }
-*/
+
+.arquivoInput {
+  width: 65%;
+  height: 150px;
+  position: relative;
+  display: block;
+  margin: auto;
+  top: -154px;
+  opacity: 0;
+}
+
+img {
+  display: block;
+  position: relative;
+  margin: auto;
+  top: -270px;
+  width: 20%;
+  filter: contrast(1000%) invert(100%) sepia(40%) saturate(1000%) hue-rotate(90deg) brightness(100%);
+  pointer-events: none;
+}
+
+.corBtn {
+  display: block;
+  position: relative;
+  width: 75%;
+  height: 30px;
+  top: -200px;
+  margin: auto;
+  border: none;
+  border-radius: 10px;
+  background: #17d378;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.filler{
+  position: absolute;
+  visibility: hidden;
+}

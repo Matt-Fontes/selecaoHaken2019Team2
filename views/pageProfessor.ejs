@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <title>Landing Page</title>
@@ -9,69 +10,246 @@
   <link rel="stylesheet" type="text/css" href="css/stylePage.css">
   <link rel="icon" type="image/ico" href="images/icon.png" />
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
-  <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-  <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-  <script type="text/javascript" src="js/jquery1.js"></script>
-  <script type="text/javascript" src="js/jquery2.js"></script>
-  <script type="text/javascript" src="js/jquery3.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <scripttype="text/javascript" src="js/jquery-ui.js">
+    </script>
+    <script type="text/javascript" src="js/jquery1.js"></script>
+    <script type="text/javascript" src="js/jquery2.js"></script>
+    <script type="text/javascript" src="js/jquery3.js"></script>
+    <script>
+      $(document).ready(function() {
+      $('#example').DataTable( {
+        columnDefs: [{
+          targets: [ 0, 1, 2 ],
+          lassName: 'mdl-data-table__cell--non-numeric'
+        }]
+      });
 
+      $('#tableTemas').DataTable( {
+
+        columnDefs: [{
+          targets: [ 0, 1, 2 ],
+          className: 'mdl-data-table__cell--non-numeric'
+        }]
+      });
+
+      $("#tableTemas_wrapper").css("display", "none");
+
+      $(document).on('click', ".line", (function() {
+        if(theme == 0){
+          $(".modalBack").css("display", "block");
+          $(".uploadModal").css("display", "block");
+
+          $(".modalTitulo").val("Redação: " + $(this).children(".titulo").text().trim());
+
+          $(".fillerTitulo").val($(this).children(".titulo").text().trim());
+          $(".fillerTema").val($(this).children(".tema").text().trim());
+
+          console.log($(this).children(".url").text());
+          window.location.href = "/downloadFile?url="+$(this).children(".url").text().trim();
+        }
+      }));
+
+      $(".modalBack").click(function(){
+        $(this).css("display", "none");
+        $(".uploadModal").css("display", "none");
+      });
+
+      var theme = 0;
+
+      $(document).on('click', ".right", (function() {
+        theme = 1;
+        $("#tableTemas_wrapper").css("display", "block");
+        $("#example_wrapper").css("display", "none");
+        $(".top").css("background", "linear-gradient(to right, #eee 50%, #17d378 50%)");
+        $(".left").css("box-shadow", "none");
+        $(".right").css("box-shadow", "-5px 0px 4px #ccc");
+        $(".right").css("color", "#fff");
+        $(".left").css("color", "#000");
+        $(".sec2").css("display", "flex");
+      }));
+
+      $(document).on('click', ".left", (function() {
+        theme = 0;
+        $("#tableTemas_wrapper").css("display", "none");
+        $("#example_wrapper").css("display", "block");
+        $(".top").css("background", "linear-gradient(to right, #17d378 50%, #eee 50%)");
+        $(".left").css("box-shadow", "5px 0px 4px #ccc");
+        $(".right").css("box-shadow", "none");
+        $(".left").css("color", "#fff");
+        $(".right").css("color", "#000");
+        $(".sec2").css("display", "none");
+      }));
+
+      $(".txtNomeUp").keyup(function(){
+
+        $('.line').each(function() {
+          if($(".txtNomeUp").val().trim() == $(this).children(".lineNome").text().trim() && $(this).children(".lineNome").text().trim().length > 0)
+          {
+            console.log("Worked");
+            $(".txtNewNome").val($(this).children(".lineNome").text().trim());
+            $(".txtNewUrl").val($(this).children(".lineUrl").text().trim());
+            $(".txtNewData").val($(this).children(".lineData").text().trim());
+            return false;
+          }
+          else {
+          }
+            $(".txtNewNome").val("");
+            $(".txtNewUrl").val("");
+            $(".txtNewData").val("");
+        });
+      });
+
+      $('.arquivoInput').change(function () {
+        $('.arquivoMsg').text(this.files.length + " arquivo selecionado");
+      });
+
+    });
+    </script>
 </head>
 
 <body>
-  <script>
-  $(document).ready(function() {
-  $('#example').DataTable( {
-      columnDefs: [
-          {
-              targets: [ 0, 1, 2 ],
-              className: 'mdl-data-table__cell--non-numeric'
-          }
-      ]
-  } );
+  <div class="modalBack"></div>
+  <div class="uploadModal">
+    <form class="delRedacao" action="delRedacao" method="post">
+      <input class="modalTitulo" type="text" name="titulo">
+      <input class="modalBtnDel" type="submit" value="Remover Redação">
+    </form>
+    <form class="corRedacao" action="profUpload" method="post" enctype="multipart/form-data">
+      <input class="filler fillerTitulo" type="text" name="titulo">
+      <input class="filler fillerTema" type="text" name="tema">
+      <span class="arquivoMsg">Arraste o Arquivo Ou Clique Abaixo</span>
+      <div class="overInput"></div>
+      <input class="arquivoInput" type="file" name="upfile">
+      <img src="images/arquivo.png">
+      <input class="corBtn" type="submit" value="Enviar Correção">
+    </form>
+  </div>
 
-  $(document).on('click', ".line", (function() {
-    console.log($(this).children(".url").text());
-    window.location.href = "/downloadFile?url="+$(this).children(".url").text();
-  }));
-
-} );
-  </script>
-
+  <div class="top">
+    <div class="left">Redações</div>
+    <div class="right">Temas</div>
+  </div>
   <table id="example" class="mdl-data-table" style="width:100%">
-          <thead>
-              <tr>
-                  <th>Titulo</th>
-                  <th>Tema</th>
-                  <th>Aluno</th>
-                  <th>Email</th>
-                  <th>Data</th>
-                  <th>Arquivo</th>
-              </tr>
-          </thead>
-          <tbody>
-            <% usuarios.forEach((item) => { %>
-              <tr class="line">
-                  <td><%= item.titulo %></td>
-                  <td><%= item.tema %></td>
-                  <td><%= item.aluno %></td>
-                  <td><%= item.email %></td>
-                  <td><%= item.hoje %></td>
-                  <td class="url"><%= item.name %></td>
-              </tr>
-              <% }) %>
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Tema</th>
+        <th>Aluno</th>
+        <th>Email</th>
+        <th>Data</th>
+        <th>Arquivo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% redas.forEach((item) => { %>
+      <tr class="line">
+        <td class="titulo">
+          <%= item.titulo %>
+        </td>
+        <td class="tema">
+          <%= item.tema %>
+        </td>
+        <td>
+          <%= item.aluno %>
+        </td>
+        <td>
+          <%= item.email %>
+        </td>
+        <td>
+          <%= item.hoje %>
+        </td>
+        <td class="url">
+          <%= item.name %>
+        </td>
+      </tr>
+      <% }) %>
 
-          </tbody>
-          <tfoot>
-              <tr>
-                <th>Titulo</th>
-                <th>Tema</th>
-                <th>Aluno</th>
-                <th>Email</th>
-                <th>Data</th>
-                <th>Arquivo</th>
-              </tr>
-          </tfoot>
-      </table>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Titulo</th>
+        <th>Tema</th>
+        <th>Aluno</th>
+        <th>Email</th>
+        <th>Data</th>
+        <th>Arquivo</th>
+      </tr>
+    </tfoot>
+  </table>
+
+
+
+
+  <table id="tableTemas" class="mdl-data-table" style="width:100%">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Url</th>
+        <th>Hoje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% temas.forEach((item) => { %>
+      <tr class="line">
+        <td class="lineNome">
+          <%= item.nome %>
+        </td>
+        <td class="lineUrl">
+          <%= item.url %>
+        </td>
+        <td class="lineData">
+          <%= item.hoje %>
+        </td>
+      </tr>
+      <% }) %>
+
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Nome</th>
+        <th>Url</th>
+        <th>Hoje</th>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="sec2">
+    <div class="addTema">
+      <span class="txtAdd">Adicionar Tema</span>
+      <form class="formTema" action="addTema" method="post">
+        <div class="overlayN txtOverlay">Nome</div>
+        <input autocomplete="off" class="txtNome txtInput" type="text" name="nome">
+        <div class="overlayU txtOverlay">Url</div>
+        <input autocomplete="off" class="txtUrl txtInput" type="text" name="url">
+        <div class="overlayD txtOverlay">Data</div>
+        <input autocomplete="off" class="txtData txtInput" type="date" name="hoje">
+        <input autocomplete="off" class="formBtn" type="submit" value="Adicionar">
+      </form>
+    </div>
+    <div class="delTema">
+      <span class="txtDel">Remover Tema</span>
+      <form class="form2Tema" action="delTema" method="post">
+        <div class="overlayN txtOverlay">Nome</div>
+        <input autocomplete="off" class="txtNome txtInput" type="text" name="nome">
+        <input autocomplete="off" class="form2Btn" type="submit" value="Remover">
+      </form>
+    </div>
+    <div class="uptTema">
+      <span class="txtUpt">Atualizar Tema</span>
+      <form class="form3Tema" action="uptTema" method="post">
+        <div class="overlayN txtOverlay">Nome do Tema</div>
+        <input autocomplete="off" class="txtNome txtNomeUp  txtInput" type="text" name="nome">
+        <div class="overlayN txtOverlay">Novo Nome</div>
+        <input autocomplete="off" class="txtNome txtNewNome txtInput" type="text" name="newnome">
+        <div class="overlayU txtOverlay">Novo Url</div>
+        <input autocomplete="off" class="txtUrl txtNewUrl txtInput" type="text" name="newurl">
+        <div class="overlayD txtOverlay">Nova Data</div>
+        <input autocomplete="off" class="txtData txtNewData txtInput" type="text" name="newhoje">
+        <input autocomplete="off" class="form3Btn" type="submit" value="Atualizar">
+      </form>
+    </div>
+  </div>
 
 </body>
 

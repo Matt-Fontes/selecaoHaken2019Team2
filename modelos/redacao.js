@@ -6,7 +6,8 @@ var Redacao = new mongoose.Schema({
   aluno: {type: String, trim:true},
   email: {type: String, trim:true},
   hoje: {type: String, trim:true},
-  tema: {type: String, trim:true}
+  tema: {type: String, trim:true},
+  status: {type: String, trim:true}
 });
 
 module.exports = mongoose.model('Redacao', Redacao);

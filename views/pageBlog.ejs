@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/blogmaterialio.css">
   <link rel="stylesheet" type="text/css" href="css/blog.css">
-  <link rel="stylesheet" type="text/css" href="css/stylePage.css">
+  <link rel="stylesheet" type="text/css" href="css/styleBlog.css">
   <link rel="icon" type="image/ico" href="images/icon.png" />
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
   <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
@@ -38,8 +38,7 @@
 
 
   <div class="bannerReda">
-  <span>REDAÇÕES</span>
-  <img class="bannerReda" src="images/blog.jpg">
+  <span class="title">REDAÇÕES</span>
   </div>
 
 
@@ -49,15 +48,14 @@
               <tr>
                   <th>Titulo</th>
                   <th>Tema</th>
-                  <th>Score</th>
+                  <th>Arquivo</th>
               </tr>
           </thead>
           <tbody>
-            <% usuarios.forEach((item) => { %>
+            <% redas.forEach((item) => { %>
               <tr class="line">
                   <td><%= item.titulo %></td>
                   <td><%= item.tema %></td>
-                  <td><%= item.score %></td>
                   <td class="url"><%= item.name %></td>
               </tr>
               <% }) %>
@@ -67,7 +65,7 @@
               <tr>
                 <th>Titulo</th>
                 <th>Tema</th>
-                <th>Score</th>
+                <th>Arquivo</th>
               </tr>
           </tfoot>
       </table>

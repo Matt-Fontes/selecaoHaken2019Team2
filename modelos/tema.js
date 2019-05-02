@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 
-var tema = new mongoose.Schema({
+var Tema = new mongoose.Schema({
   nome: {type: String,  trim: true},
-  date: {type: date},
+  hoje: {type: String, trim: true},
+  url: {type: String, trim:true}
 });
 
-module.exports = mongoose.model('tema', tema);
+module.exports = mongoose.model('Tema', Tema);
