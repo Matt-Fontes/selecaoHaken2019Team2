@@ -116,8 +116,8 @@ $(document).ready(function() {
     <thead>
       <tr>
         <th>Nome</th>
-        <th>URL do Texto de Apoio</th>
         <th>Data</th>
+        <th>URL do Texto de Apoio</th>
       </tr>
     </thead>
     <tbody>
@@ -126,11 +126,11 @@ $(document).ready(function() {
         <td class="lineNome">
           <%= item.nome %>
         </td>
-        <td class="lineUrl">
-          <%= item.url %>
-        </td>
         <td class="lineData">
           <%= item.hoje %>
+        </td>
+        <td class="lineUrl">
+          <%= item.url %>
         </td>
       </tr>
       <% }) %>
@@ -139,8 +139,8 @@ $(document).ready(function() {
     <tfoot>
       <tr>
         <th>Nome</th>
-        <th>URL do Texto de Apoio</th>
         <th>Data</th>
+        <th>URL do Texto de Apoio</th>
       </tr>
     </tfoot>
   </table>
