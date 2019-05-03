@@ -262,7 +262,6 @@ img {
   margin: auto;
   top: -270px;
   width: 20%;
-  filter: contrast(1000%) invert(100%) sepia(40%) saturate(1000%) hue-rotate(90deg) brightness(100%);
   pointer-events: none;
 }
 
