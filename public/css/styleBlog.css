@@ -26,8 +26,54 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
+.top {
+  position: absolute;
+  display: flex;
+  width: 170px;
+  background: linear-gradient(to right, #17d378 50%, #eee 50%);
+  border-radius: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 310px;
+  height: 35px
+}
+
+.left {
+  padding: 5px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 5px 0px 4px #ccc;
+  width: 50%;
+  text-align: center;
+  align-self: center;
+}
+
+.left:hover{
+  cursor: pointer;
+}
+
+.right {
+  padding: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+  align-self: center;
+}
+
+.right:hover{
+  cursor: pointer;
+}
+
+.mdl-button{
+  color: #555 !important;
+  font-weight: bold !important;
+}
+
 .mdl-button--raised{
   background: #17d378 !important;
   font-weight: bold;
   font-size: 20px;
+  color: #fff !important;
 }

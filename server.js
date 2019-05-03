@@ -38,11 +38,24 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/redacoes', (req, res) => {
+// Mostrando redacoes corrigidas e temas
 
+app.get('/redacoes', (req, res) => {
   Redacao.find({status: "1"})
   .then(redacaos => {
-    res.render('pageBlog.ejs', {redas: redacaos,})
+    Tema.find()
+    .then(temas => {
+      res.render('./pageBlog', {
+         redas: redacaos,
+         temas: temas
+        });
+    })
+    .catch(err => {
+      res.json({
+        confirmation: 'fail',
+        message: err.message
+      })
+    })
   })
   .catch(err => {
     res.json({

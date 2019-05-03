@@ -5,14 +5,20 @@ body {
   padding:auto;
 }
 
+.odd:hover, .even:hover{
+  cursor: pointer;
+}
+
+.mdl-button{
+  color: #555 !important;
+  font-weight: bold !important;
+}
+
 .mdl-button--raised{
   background: #17d378 !important;
   font-weight: bold;
   font-size: 20px;
-}
-
-.odd:hover, .even:hover{
-  cursor: pointer;
+  color: #fff !important;
 }
 
 .top {

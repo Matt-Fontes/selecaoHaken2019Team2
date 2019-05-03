@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <title>Landing Page</title>
@@ -16,59 +17,133 @@
   <script type="text/javascript" src="js/jquery3.js"></script>
 </head>
 
-<body>
-  <script>
-  $(document).ready(function() {
-  $('#example').DataTable( {
-      columnDefs: [
-          {
-              targets: [ 0, 1, 2 ],
-              className: 'mdl-data-table__cell--non-numeric'
-          }
-      ]
-  } );
+<script>
+$(document).ready(function() {
+  $('#example').DataTable({
+    columnDefs: [{
+      targets: [0, 1, 2],
+      className: 'mdl-data-table__cell--non-numeric'
+    }]
+  });
+  $('#tableTemas').DataTable({
+
+    columnDefs: [{
+      targets: [0, 1, 2],
+      className: 'mdl-data-table__cell--non-numeric'
+    }]
+  });
+
+  $("#tableTemas_wrapper").css("display", "none");
+
+  var theme = 0;
+
+  $(document).on('click', ".right", (function() {
+    theme = 1;
+    $("#tableTemas_wrapper").css("display", "block");
+    $("#example_wrapper").css("display", "none");
+    $(".top").css("background", "linear-gradient(to right, #eee 50%, #17d378 50%)");
+    $(".left").css("box-shadow", "none");
+    $(".right").css("box-shadow", "-5px 0px 4px #ccc");
+    $(".right").css("color", "#fff");
+    $(".left").css("color", "#000");
+    $(".title").text("TEMAS");
+  }));
+
+  $(document).on('click', ".left", (function() {
+    theme = 0;
+    $("#tableTemas_wrapper").css("display", "none");
+    $("#example_wrapper").css("display", "block");
+    $(".top").css("background", "linear-gradient(to right, #17d378 50%, #eee 50%)");
+    $(".left").css("box-shadow", "5px 0px 4px #ccc");
+    $(".right").css("box-shadow", "none");
+    $(".left").css("color", "#fff");
+    $(".right").css("color", "#000");
+    $(".title").text("REDAÇÕES");
+  }));
 
   $(document).on('click', ".line", (function() {
     console.log($(this).children(".url").text());
-    window.location.href = "/downloadFile?url="+$(this).children(".url").text();
+    window.location.href = "/downloadFile?url=" + $(this).children(".url").text();
   }));
 
-} );
-  </script>
-
+});
+</script>
+<body>
 
   <div class="bannerReda">
-  <span class="title">REDAÇÕES</span>
+    <span class="title">REDAÇÕES</span>
   </div>
 
-
-
   <table id="example" class="mdl-data-table" style="width:100%">
-          <thead>
-              <tr>
-                  <th>Titulo</th>
-                  <th>Tema</th>
-                  <th>Arquivo</th>
-              </tr>
-          </thead>
-          <tbody>
-            <% redas.forEach((item) => { %>
-              <tr class="line">
-                  <td><%= item.titulo %></td>
-                  <td><%= item.tema %></td>
-                  <td class="url"><%= item.name %></td>
-              </tr>
-              <% }) %>
+    <thead>
+      <tr>
+        <th>Titulo</th>
+        <th>Tema</th>
+        <th>Arquivo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% redas.forEach((item) => { %>
+      <tr class="line">
+        <td>
+          <%= item.titulo %>
+        </td>
+        <td>
+          <%= item.tema %>
+        </td>
+        <td class="url">
+          <%= item.name %>
+        </td>
+      </tr>
+      <% }) %>
 
-          </tbody>
-          <tfoot>
-              <tr>
-                <th>Titulo</th>
-                <th>Tema</th>
-                <th>Arquivo</th>
-              </tr>
-          </tfoot>
-      </table>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Titulo</th>
+        <th>Tema</th>
+        <th>Arquivo</th>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="top">
+    <div class="left">Redações</div>
+    <div class="right">Temas</div>
+  </div>
+
+  <table id="tableTemas" class="mdl-data-table" style="width:100%">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>URL do Texto de Apoio</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% temas.forEach((item) => { %>
+      <tr class="line">
+        <td class="lineNome">
+          <%= item.nome %>
+        </td>
+        <td class="lineUrl">
+          <%= item.url %>
+        </td>
+        <td class="lineData">
+          <%= item.hoje %>
+        </td>
+      </tr>
+      <% }) %>
+
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Nome</th>
+        <th>URL do Texto de Apoio</th>
+        <th>Data</th>
+      </tr>
+    </tfoot>
+  </table>
 
 </body>
 

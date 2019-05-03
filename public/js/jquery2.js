@@ -35,7 +35,7 @@
     c && Da(c);
     if (a) {
       var d = a.sZeroRecords;
-      !a.sEmptyTable && (d && "No data available in table" === b.sEmptyTable) && F(a, a, "sZeroRecords", "sEmptyTable");
+      !a.sEmptyTable && (d && "Não há dados disponíveis" === b.sEmptyTable) && F(a, a, "sZeroRecords", "sEmptyTable");
       !a.sLoadingRecords && (d && "Loading..." === b.sLoadingRecords) && F(a,
         a, "sZeroRecords", "sLoadingRecords");
       a.sInfoThousands && (a.sThousands = a.sInfoThousands);
@@ -3324,12 +3324,12 @@
         sSortDescending: ": activate to sort column descending"
       },
       oPaginate: {
-        sFirst: "First",
-        sLast: "Last",
-        sNext: "Next",
-        sPrevious: "Previous"
+        sFirst: "Primeiro",
+        sLast: "Ultimo",
+        sNext: "Proximo",
+        sPrevious: "Anterior"
       },
-      sEmptyTable: "No data available in table",
+      sEmptyTable: "Não há dados disponíveis",
       sInfo: "Mostrando de _START_ a _END_ de _TOTAL_ resultados",
       sInfoEmpty: "Mostrando de 0 a 0 de 0 resultados",
       sInfoFiltered: "(filtered from _MAX_ total entries)",
